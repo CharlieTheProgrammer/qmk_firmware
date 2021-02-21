@@ -1,27 +1,31 @@
-# bredfield's 4x12 Ortho Keymap
+# Charlie's 4x12 Ortho Keymap
 
 ## Overview
+Copied this layout from bredfield. 
+
 This is the layout that I use for all 4x12 boards, for writing and programming.
 
 - Works with planck or split style boards
 - Split spacebar; left position is backspace, which frees up the typical key for minus/undersc
-- Targets mac os; linux variant to come
+- Targets mac os.
 - Navigation layer is triggered via the `;` key, allowing for single-hand navigation without leaving the home row
 - Brackets are located on the home row on raise, which is comfortable when programming
 - Reduced mod / layer tap use, to avoid input lag
-- LEDs are overrated
+- Adjusted keys to account for 1 2UC spacebar.
+- Swapped GUIs/Ctrls to somewhat match Windows with Mac. 
+- Added options to swap GUIs/Ctrls for portability between OSs.
 
 ## Layers
 ### Main
 ```
  * ,-----------------------------------------------------------------------------------------------------------.
- * |   Tab  |    Q   |    W   |    E   |    R   |    T   |    Y   |    U   |    I   |    O   |    P   |   -    |
+ * |   Tab  |    Q   |    W   |    E   |    R   |    T   |    Y   |    U   |    I   |    O   |    P   |   Bspc |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * | GUI/Esc|    A   |    S   |    D   |    F   |    G   |    H   |    J   |    K   |    L   |  ;/nav |   "    |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |  Shift |    Z   |    X   |    C   |    V   |    B   |    N   |    M   |    ,   |    .   |    /   | Sft/ent|
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * | Numpad |  Ctrl  |  Alt   |  GUI   |  Lower |  Bksp  |  Space | Raise  |  Ctrl  |  Alt   |   UI   |  Keybd |
+ * | Numpad |   GUI  |  Alt   |  Ctrl  |  Lower |  Space |  Space | Raise  |  Ctrl  |  Alt   |   GUI  |  Keybd |
  * `-----------------------------------------------------------------------------------------------------------'
  ```
 
@@ -34,7 +38,7 @@ This is the layout that I use for all 4x12 boards, for writing and programming.
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |        |        |        |        |        |        |        |        |   ,    |    .   |    /   |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |  Del   |        |        |        |        |        |        |
+ * |        |        |        |        |        |  Del   |  Del   |        |        |        |        |        |
  * `-----------------------------------------------------------------------------------------------------------'
 ```
 
@@ -47,7 +51,7 @@ This is the layout that I use for all 4x12 boards, for writing and programming.
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |        |        |        |        |        |        |        |        |        |        |        |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |   Del  |        |        |        |        |        |        |
+ * |        |        |        |        |        |   Del  |  Del   |        |        |        |        |        |
  * `-----------------------------------------------------------------------------------------------------------'
 ```
 
@@ -93,11 +97,11 @@ This is the layout that I use for all 4x12 boards, for writing and programming.
 ### Keyboard
 ```
  * ,--------------------------------------------------------------------------------+--------+-----------------.
- * |        |        |        |        |        |        |        |        |        |        |        | RESET  |
+ * | LCG_NRM| KCG_SWP|        |        |        |        |        |        |        |        |        | RESET  |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |        |        |        |        |        |        | DEBUG  |
+ * |        |  RGB   | RGBMOD |  HUE+  |  HUE-  |  SAT+  |  SAT-  | BRGTH+ | BRGTH- |       |         | DEBUG  |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------------------------+--------|
- * |        |        |        |        |        |        |        |        |        |        |        |        |
+ * | MU_SCL | Aud on | Audoff | Voice- | Voice+ | Mus on | Musoff |        |        |        |        |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |        |        |        |        |        |        |        |        |        |        |        |        |
  * `-----------------------------------------------------------------------------------------------------------'

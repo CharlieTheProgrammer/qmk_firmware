@@ -55,14 +55,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |  Shift |    Z   |    X   |    C   |    V   |    B   |    N   |    M   |    ,   |    .   |    /   | Sft/ent|
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * | Numpad |  Ctrl  |  Alt   |  GUI   |  Lower |  Bksp  |  Space | Raise  |  Ctrl  |  Alt   |   UI   |  Keybd |
+ * | Numpad |   GUI  |  Alt   |  Ctrl  |  Lower |  Space |  Space | Raise  |   GUI  |  Alt   |  Ctrl  |  Keybd |
  * `-----------------------------------------------------------------------------------------------------------'
  */
 [_BASE_LAYER] = LAYOUT_ortho_4x12(
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    GUI_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    SCL_NAV, KC_QUOT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
-    L_NUMPAD,KC_LCTL, KC_LALT, KC_LGUI, L_LOWER, KC_SPACE, KC_SPACE,L_RAISE, KC_RCTRL,KC_RALT, L_UI,    L_KEYBD
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,      KC_U,    KC_I,     KC_O,    KC_P,    KC_BSPC,
+    GUI_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,      KC_J,    KC_K,     KC_L,    SCL_NAV, KC_QUOT,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,      KC_M,    KC_COMM,  KC_DOT,  KC_SLSH, SFT_ENT,
+    L_NUMPAD,KC_LGUI, KC_LALT, KC_LCTL, L_LOWER, KC_SPACE, KC_SPACE, L_RAISE, KC_RCTRL, KC_RALT, KC_RGUI, L_KEYBD
 ),
 
 /* Lower
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |        |        |        |        |        |        |        |        |   ,    |    .   |    /   |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |  Del   |        |        |        |        |        |
+ * |        |        |        |        |        |  Del   |   Del  |        |        |        |        |
  * `-----------------------------------------------------------------------------------------------------------'
  */
 [_LOWER_LAYER] = LAYOUT_ortho_4x12(
@@ -155,21 +155,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_MRWD, KC_MPLY, KC_MFFD, KC_VOLD, KC_MUTE, KC_MUTE, KC_VOLU, _______, _______, _______, _______
 ),
 
+
 /* Keyboard
+ * LCG_SWP = MAGIC_SWAP_LCTL_LGUI
+ * LCG_NRM = MAGIC_UNSWAP_LCTL_LGUI
  * ,--------------------------------------------------------------------------------+--------+-----------------.
- * |        |        |        |        |        |        |        |        |        |        |        | RESET  |
+ * | LCG_NRM| KCG_SWP|        |        |        |        |        |        |        |        |        | RESET  |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |        |        |        |        |        |        | DEBUG  |
+ * |        |  RGB   | RGBMOD |  HUE+  |  HUE-  |  SAT+  |  SAT-  | BRGTH+ | BRGTH- |       |         | DEBUG  |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------------------------+--------|
- * |        |        |        |        |        |        |        |        |        |        |        |        |
+ * | MU_SCL | Aud on | Audoff | Voice- | Voice+ | Mus on | Musoff |        |        |        |        |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |        |        |        |        |        |        |        |        |        |        |        |        |
  * `-----------------------------------------------------------------------------------------------------------'
  */
 [_KEYBOARD_LAYER] = LAYOUT_ortho_4x12(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DEBUG,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    LCG_NRM, LCG_SWP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   RESET,
+    XXXXXXX, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, XXXXXXX, XXXXXXX,   DEBUG,
+    MU_MOD,  AU_ON,   AU_OFF,  MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______
 ),
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+  return update_tri_layer_state(state, _LOWER_LAYER, _RAISE_LAYER, _UI_LAYER);
+};
+
+bool music_mask_user(uint16_t keycode) {
+  switch (keycode) {
+    case _RAISE_LAYER:
+    case _LOWER_LAYER:
+      return false;
+    default:
+      return true;
+  }
+}
