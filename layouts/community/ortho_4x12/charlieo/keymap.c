@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------------------------------'
  */
 [_LOWER_LAYER] = LAYOUT_ortho_4x12(
-    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_PLUS, KC_EQL,  _______,
+    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_PLUS, KC_EQL,  KC_UNDS,
     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_COMM, KC_DOT,  KC_SLSH, _______,
     _______, _______, _______, _______, _______, KC_DEL,  KC_DEL, _______, _______, _______, _______, _______
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |        |        |        |        |        |        |        |        |        |        |        |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |   Del  |        |        |        |        |        |        |
+ * |        |        |        |        |        |   Del  |   Del  |        |        |        |        |        |
  * `-----------------------------------------------------------------------------------------------------------'
  */
 [_RAISE_LAYER] = LAYOUT_ortho_4x12(
@@ -139,20 +139,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* UI
  * ,--------------------------------------------------------------------------------+--------+-----------------.
- * | GUI Tab|        |        |        |        |        |        |        |        | GUI -  | GUI =  |        |
+ * | GUI Tab|        |        |        |Previous|  Play  |  Play  |  Next  |        | GUI -  | GUI =  |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * | GUI `  | GUI 1  |  GUI 2 |  GUI 3 |  GUI 4 |  GUI 5 | GUI 6  | GUI 7  |        | GUI [  | GUI ]  |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------------------------+--------|
- * |        |Full SS | Area SS|        |        |        |        |        |        |        |        |        |
+ * |        |Full SS | Area SS|        |  Vol-  |  Mute  | Mute   |  Vol+  |        |        |        |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |  Prev  |  Play  | Next   |  Bri - |        |        |  Bri + |  Mute  | Vol -  | Vol +  |        |
+ * |        |        |        |        |        |        |        |        |        |        |        |        |
  * `-----------------------------------------------------------------------------------------------------------'
  */
 [_UI_LAYER] = LAYOUT_ortho_4x12(
-    GUI_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, GUI_MIN, GUI_EQL, XXXXXXX,
+    GUI_TAB, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MPLY, KC_MNXT, XXXXXXX, GUI_MIN, GUI_EQL, XXXXXXX,
     GUI_GRV, GUI_1,   GUI_2,   GUI_3,   GUI_4,   GUI_5,   GUI_6,   GUI_7,   XXXXXXX, GUI_LBR, GUI_RBR, XXXXXXX,
-    _______, GUI_SSF, GUI_SST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, KC_MRWD, KC_MPLY, KC_MFFD, KC_VOLD, KC_MUTE, KC_MUTE, KC_VOLU, _______, _______, _______, _______
+    _______, GUI_SSF, GUI_SST, XXXXXXX, KC_VOLD, KC_MUTE, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
 
@@ -160,9 +160,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * LCG_SWP = MAGIC_SWAP_LCTL_LGUI
  * LCG_NRM = MAGIC_UNSWAP_LCTL_LGUI
  * ,--------------------------------------------------------------------------------+--------+-----------------.
- * | LCG_NRM| KCG_SWP|        |        |        |        |        |        |        |        |        | RESET  |
+ * | LCG_NRM| KCG_SWP|        |        |        |        |        |        |SCRNBRT-|SCRNBRT+|        | RESET  |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |  RGB   | RGBMOD |  HUE+  |  HUE-  |  SAT+  |  SAT-  | BRGTH+ | BRGTH- |       |         | DEBUG  |
+ * |        |  RGB   | RGBMOD |  HUE+  |  HUE-  |  SAT+  |  SAT-  | BRGTH+ | BRGTH- |        |        | DEBUG  |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------------------------+--------|
  * | MU_SCL | Aud on | Audoff | Voice- | Voice+ | Mus on | Musoff |        |        |        |        |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
@@ -170,7 +170,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------------------------------'
  */
 [_KEYBOARD_LAYER] = LAYOUT_ortho_4x12(
-    LCG_NRM, LCG_SWP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   RESET,
+    LCG_NRM, LCG_SWP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX,   RESET,
     XXXXXXX, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, XXXXXXX, XXXXXXX,   DEBUG,
     MU_MOD,  AU_ON,   AU_OFF,  MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______
