@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |        |        |        |        |        |        |        |        |   ,    |    .   |    /   |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |  Del   |   Del  |        |        |        |        |
+ * |        |        |        |        |        |  Del   |   Del  |        |        |        |        |        |
  * `-----------------------------------------------------------------------------------------------------------'
  */
 [_LOWER_LAYER] = LAYOUT_ortho_4x12(
@@ -119,24 +119,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, KC_0,    KC_DOT,  KC_SLSH, _______, _______
 ),
 
-/* Navigation
- * ,-----------------------------------------------------------------------------------------------------------.
- * |        |        |        |        |        |        |        |  Home  |   Up   |  End   |        |        |
- * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |        |        |  Left  |  Down  | Right  |        |        |
- * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |        |        |        |        |        |        |        |
- * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
- * |        |        |        |        |  Enter |        |        |   Del  |        |        |        |        |
- * `-----------------------------------------------------------------------------------------------------------'
- */
-[_NAVIGATION_LAYER] = LAYOUT_ortho_4x12(
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, _______, _______, _______, KC_ENT,  _______, _______, KC_DEL,  _______, _______, _______, _______
-),
-
 /* UI
  * ,--------------------------------------------------------------------------------+--------+-----------------.
  * | GUI Tab|        |        |        |Previous|  Play  |  Play  |  Next  |        | GUI -  | GUI =  |        |
@@ -154,7 +136,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, GUI_SSF, GUI_SST, XXXXXXX, KC_VOLD, KC_MUTE, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
-
 
 /* Keyboard
  * LCG_SWP = MAGIC_SWAP_LCTL_LGUI
@@ -174,6 +155,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, XXXXXXX, XXXXXXX,   DEBUG,
     MU_MOD,  AU_ON,   AU_OFF,  MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______
+),
+
+/* Navigation
+ * ,-----------------------------------------------------------------------------------------------------------.
+ * |        |        |        |        |        |        |        |  Home  |   Up   |  End   |        |        |
+ * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
+ * |        |        |        |        |        |        |        |  Left  |  Down  | Right  |        |        |
+ * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
+ * |        |        |        |        |        |        |        |        |        |        |        |        |
+ * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
+ * |        |        |        |        |  Enter |        |        |   Del  |        |        |        |        |
+ * `-----------------------------------------------------------------------------------------------------------'
+ */
+[_NAVIGATION_LAYER] = LAYOUT_ortho_4x12(
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, _______, _______, _______, KC_ENT,  _______, _______, KC_DEL,  _______, _______, _______, _______
 ),
 };
 
