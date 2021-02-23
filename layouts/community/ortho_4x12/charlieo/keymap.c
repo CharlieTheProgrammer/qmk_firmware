@@ -44,6 +44,8 @@ enum layer_names {
 #define GUI_GRV LGUI(KC_GRV) // window toggle
 #define GUI_SSF LGUI(LSFT(KC_3)) // Full screen shot
 #define GUI_SST LGUI(LSFT(KC_4)) // Targetted screen shot
+#define SCRN_BRIU LCA(KC_RIGHT)
+#define SCRN_BRID LCA(KC_LEFT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -140,21 +142,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keyboard
  * LCG_SWP = MAGIC_SWAP_LCTL_LGUI
  * LCG_NRM = MAGIC_UNSWAP_LCTL_LGUI
+ * SCRN_BRID, SCRN_BRIU = Controls screen brightness for windows via Monitorian app hotkeys.
+ * KC_BRID, KC_BRIU = Generic brightness controls. Should work for all laptops.
  * ,--------------------------------------------------------------------------------+--------+-----------------.
  * | LCG_NRM| KCG_SWP|        |        |        |        |        |        |SCRNBRT-|SCRNBRT+|        | RESET  |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |        |  RGB   | RGBMOD |  HUE+  |  HUE-  |  SAT+  |  SAT-  | BRGTH+ | BRGTH- |        |        | DEBUG  |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------------------------+--------|
- * | MU_SCL | Aud on | Audoff | Voice- | Voice+ | Mus on | Musoff |        |        |        |        |        |
+ * | MU_SCL | Aud on | Audoff | Voice- | Voice+ | Mus on | Musoff |        |SCRNBRT-|SCRNBRT+|        |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+--------|
  * |        |        |        |        |        |        |        |        |        |        |        |        |
  * `-----------------------------------------------------------------------------------------------------------'
  */
 [_KEYBOARD_LAYER] = LAYOUT_ortho_4x12(
-    LCG_NRM, LCG_SWP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX,   RESET,
-    XXXXXXX, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, XXXXXXX, XXXXXXX,   DEBUG,
-    MU_MOD,  AU_ON,   AU_OFF,  MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______
+    LCG_NRM, LCG_SWP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCRN_BRID, SCRN_BRIU, XXXXXXX,  RESET,
+    XXXXXXX, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD,   XXXXXXX,   XXXXXXX,  DEBUG,
+    MU_MOD,  AU_ON,   AU_OFF,  MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  XXXXXXX, KC_BRID,   KC_BRIU,   XXXXXXX,  XXXXXXX,
+    _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, _______, _______,   _______,   _______,  _______
 ),
 
 /* Navigation
